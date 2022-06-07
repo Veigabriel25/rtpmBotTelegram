@@ -16,9 +16,9 @@ const port = process.env.PORT;
 app.post('/iniciada', (req, res) => {
   bot.sendMessage(
     339351193,
-    `\u{2705} <b>Transmissão iniciada\n\n\u{1F550}</b> ${moment().format(
-      'DD/MM/YYYY - HH:mm'
-    )}`,
+    `\u{2705} <b>Transmissão iniciada\n\n\u{1F550}</b> ${moment()
+      .utcOffset(-3)
+      .format('DD/MM/YYYY - HH:mm')}`,
     { parse_mode: 'HTML' }
   );
   return res.send('OK');
@@ -27,9 +27,9 @@ app.post('/iniciada', (req, res) => {
 app.post('/finalizada', (req, res) => {
   bot.sendMessage(
     339351193,
-    `\u{274C} <b>Transmissão finalizada\n\n\u{1F550}</b> ${moment().format(
-      'DD/MM/YYYY - HH:mm'
-    )}`,
+    `\u{274C} <b>Transmissão finalizada\n\n\u{1F550}</b> ${moment()
+      .utcOffset(-3)
+      .format('DD/MM/YYYY - HH:mm')}`,
     { parse_mode: 'HTML' }
   );
   return res.send('OK');
