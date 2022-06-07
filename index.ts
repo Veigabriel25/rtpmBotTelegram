@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import moment from 'moment';
 
 import TelegramBot from 'node-telegram-bot-api';
 
@@ -15,7 +16,10 @@ const port = process.env.PORT;
 app.post('/iniciada', (req, res) => {
   bot.sendMessage(
     339351193,
-    `Transmissão iniciada (${new Date().toISOString()})`
+    `\u{2705} <b>Transmissão iniciada\n\n\u{1F550}</b> ${moment().format(
+      'DD/MM/YYYY - HH:mm'
+    )}`,
+    { parse_mode: 'HTML' }
   );
   return res.send('OK');
 });
@@ -23,7 +27,10 @@ app.post('/iniciada', (req, res) => {
 app.post('/finalizada', (req, res) => {
   bot.sendMessage(
     339351193,
-    `Transmissão finalizada (${new Date().toISOString()})`
+    `\u{274C} <b>Transmissão finalizada\n\n\u{1F550}</b> ${moment().format(
+      'DD/MM/YYYY - HH:mm'
+    )}`,
+    { parse_mode: 'HTML' }
   );
   return res.send('OK');
 });
