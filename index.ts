@@ -39,6 +39,6 @@ app.post('/finalizada/:id_tipo', (req, res) => {
   return res.send('OK');
 });
 
-app.listen(3333, () => {
+app.listen(port, () => {
   console.log(`[server]: Server is running at https://localhost:${port}`);
 });
